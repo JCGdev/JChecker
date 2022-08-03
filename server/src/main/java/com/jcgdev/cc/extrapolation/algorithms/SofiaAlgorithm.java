@@ -2,7 +2,7 @@ package com.jcgdev.cc.extrapolation.algorithms;
 
 import com.jcgdev.cc.CreditCard;
 
-public class SofiaAlgorithm implements CCExtrapolatorAlgorithm {
+public class SofiaAlgorithm implements CCExtrapolationAlgorithm {
 
 	@Override
 	public CreditCard execute(CreditCard[] ccs) {

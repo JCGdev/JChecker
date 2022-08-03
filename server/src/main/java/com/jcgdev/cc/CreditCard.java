@@ -49,6 +49,22 @@ public class CreditCard {
 		}
 		return number;
 	}
+	
+	public int[] getNumberAsIntArray() {
+		char[] array = this.getNumber().toCharArray();
+		int[] resultingArray = new int[array.length];
+		
+		if(this.number == null) {
+			return null;
+			
+		} else {
+			for(int i=0; i<array.length; i++) {
+				resultingArray[i] = Character.getNumericValue(array[i]);
+			}
+		}
+		
+		return resultingArray;
+	}
 	public void setNumber(String number) {
 		this.number = number;
 	}
@@ -85,6 +101,14 @@ public class CreditCard {
 	}
 	public void setCVV(String CVV) {
 		this.CVV = CVV;	
+	}
+	
+	
+	public static boolean isValid(String cc) {
+		Pattern pattern = Pattern.compile("[0-9]{16}");
+		Matcher matcher = pattern.matcher(cc);
+		
+		return matcher.matches();
 	}
    
 }

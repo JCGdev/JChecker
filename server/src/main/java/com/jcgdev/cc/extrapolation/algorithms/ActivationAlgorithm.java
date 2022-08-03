@@ -2,7 +2,7 @@ package com.jcgdev.cc.extrapolation.algorithms;
 
 import com.jcgdev.cc.CreditCard;
 
-public class ActivationAlgorithm implements CCExtrapolatorAlgorithm {
+public class ActivationAlgorithm implements CCExtrapolationAlgorithm {
 
 	@Override
 	public CreditCard execute(CreditCard[] ccs) {
