@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jcgdev.cc.CreditCard;
 import com.jcgdev.cc.validation.CCValidator;
-import com.jcgdev.cc.validation.algorithms.LuhnAlgorithm;
+import com.jcgdev.cc.validation.algorithms.LuhnValidationAlgorithm;
 
 
 @RestController
@@ -35,7 +35,7 @@ public class ValidationController {
 
 		CreditCard creditCard1 = new CreditCard(cc1, null, null, null);
 		
-		boolean status = CCValidator.validate(creditCard1, new LuhnAlgorithm());
+		boolean status = CCValidator.validate(creditCard1, new LuhnValidationAlgorithm());
 			 
         return String.format("{ \"isValid\" : %s }", Boolean.toString(status));
     } 

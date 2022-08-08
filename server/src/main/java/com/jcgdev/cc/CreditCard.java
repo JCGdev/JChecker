@@ -16,17 +16,35 @@ public class CreditCard {
 	
 	public CreditCard(String number, @Nullable String expireMonth,
 					  @Nullable String expireYear, @Nullable String CVV) {
-		
+		 
 		this.number = number;
   		this.expireMonth = expireMonth;
 		this.expireYear = expireYear;
 		this.CVV = CVV; 
 	}
 	
+
+	
+	/**
+	 * @TODO probar este constructor
+	 * 
+	 * Este constructor no recibe "x" cierto?
+	 * Efectivamente, porque una CC se considera completa,
+	 * no recibe un bin -> Ok !!
+	 * 
+	 * Luego, este constuctor debe recibir los datos "procesados" del bin
+	 * 
+	 * Este constructor recive --> "NUM|MES|AÑO|CVV"
+	 * 
+	 * NUM == 3l232324731771745?
+	 * EEEEso esss, está separado por | , esa es la forma que 
+	 * lo hace el famoso namso cc gen y la mayoría de generadores --> Ok!!
+	 * @param pattern
+	 */
 	public CreditCard(String pattern) {
-												//3232324731771745|06|2027|6432
+												//3l232324731771745|06|2027|6432
 		Pattern targetPattern = Pattern.compile("[0-9]{16}\\|[0-9]{2}\\|([0-9]{4}|[0-9]{2})\\|([0-9]{4}|[0-9]{3})");
-		Matcher matcher = targetPattern.matcher(pattern);
+		Matcher matcher = targetPattern.matcher (pattern);
 	
 		if (!matcher.matches()) {
 			throw new InvalidCreditCardException("Invalid credit card pattern");
