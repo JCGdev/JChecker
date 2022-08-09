@@ -3,6 +3,8 @@ package com.jcgdev;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.jcgdev.cc.CreditCard;
+
 
 @SpringBootApplication
 public class Main {
@@ -11,7 +13,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		apiRest.run(args);
-		
+	}
+	
 	
 	public SpringApplication getSpringApplication() {
 		return apiRest;

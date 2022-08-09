@@ -24,26 +24,9 @@ public class CreditCard {
 	}
 	
 
-	
-	/**
-	 * @TODO probar este constructor
-	 * 
-	 * Este constructor no recibe "x" cierto?
-	 * Efectivamente, porque una CC se considera completa,
-	 * no recibe un bin -> Ok !!
-	 * 
-	 * Luego, este constuctor debe recibir los datos "procesados" del bin
-	 * 
-	 * Este constructor recive --> "NUM|MES|AÑO|CVV"
-	 * 
-	 * NUM == 3l232324731771745?
-	 * EEEEso esss, está separado por | , esa es la forma que 
-	 * lo hace el famoso namso cc gen y la mayoría de generadores --> Ok!!
-	 * @param pattern
-	 */
 	public CreditCard(String pattern) {
 												//3l232324731771745|06|2027|6432
-		Pattern targetPattern = Pattern.compile("[0-9]{16}\\|[0-9]{2}\\|([0-9]{4}|[0-9]{2})\\|([0-9]{4}|[0-9]{3})");
+		Pattern targetPattern = Pattern.compile("[0-9]*\\|[0-9]{2}\\|[0-9]{4}\\|([0-9]{3}|[0-9]{4})");
 		Matcher matcher = targetPattern.matcher (pattern);
 	
 		if (!matcher.matches()) {
