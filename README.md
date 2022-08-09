@@ -68,10 +68,12 @@ The credit card number looks valid, as the check digit (the last one) is ***comp
 - /cc/extrapolate/similarity?cc1=NUM&cc2=NUM
     - cc1: First credit card number
     - cc2: Second credit card number
+    - NOTE: cc1 and cc2 must have same bin
     - returns: ***{ "cc" : "extrapolatedNumber" }***
 
 - /cc/extrapolate/sofia?cc1=NUM&cc2=NUM
     - cc1: First credit card number
     - cc2: Second credit card number
+    - NOTE: cc1 and cc2 must have same bin
     - returns: ***{ "cc" : "extrapolatedNumber" }***
 
