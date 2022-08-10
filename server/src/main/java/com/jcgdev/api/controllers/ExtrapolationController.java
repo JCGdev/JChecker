@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jcgdev.cc.CreditCard;
 import com.jcgdev.cc.extrapolation.CCExtrapolator;
 import com.jcgdev.cc.extrapolation.algorithms.ActivationAlgorithm;
-import com.jcgdev.cc.extrapolation.algorithms.SimilityAlgorithm;
+import com.jcgdev.cc.extrapolation.algorithms.SimilarityAlgorithm;
 import com.jcgdev.cc.extrapolation.algorithms.SofiaAlgorithm;
 
 @RestController
@@ -42,16 +42,16 @@ public class ExtrapolationController {
 		
 		CreditCard[] ccs = new CreditCard[] {creditCard1, creditCard2};
 		
-		CreditCard extrapolated = CCExtrapolator.extrapolate(ccs, new SimilityAlgorithm());																		
+		CreditCard extrapolated = CCExtrapolator.extrapolate(ccs, new SimilarityAlgorithm());																		
         
 		return String.format("{ \"cc\" : \"%s\" }", extrapolated.getNumber());
     }
 	
 	@GetMapping(value = "/cc/extrapolate/activation",
 				produces = MediaType.APPLICATION_JSON_VALUE)
-    public String activationExtrapolation(@RequestParam(name="cc1",required=true) String cc1) {
+    public String activationExtrapolation(@RequestParam(name="cc",required=true) String cc) {
 
-		CreditCard creditCard1 = new CreditCard(cc1, null, null, null);
+		CreditCard creditCard1 = new CreditCard(cc, null, null, null);
 		CreditCard[] ccs = new CreditCard[] {creditCard1};
 		
 		CreditCard extrapolated = CCExtrapolator.extrapolate(ccs, new ActivationAlgorithm());			

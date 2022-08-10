@@ -9,12 +9,14 @@ public class ActivationAlgorithm implements CCExtrapolationAlgorithm {
 		char[] cc = ccs[0].getNumber().toCharArray();
 		
 		
-		for(int i=cc.length-1; i>cc.length-8; i--) {
-			cc[i] = "x".charAt(0);
+		for(int i=0; i<cc.length; i++) {
+			if(i>5) {
+				cc[i] = "x".charAt(0);
+			}
+
 		}
 		
-		CreditCard extrapoledCC = ccs[0];
-		extrapoledCC.setNumber(new String(cc));
+		CreditCard extrapoledCC = new CreditCard(new String(cc), null, null, null);
 		
 		return extrapoledCC;
 	}

@@ -31,9 +31,9 @@ public class ValidationController {
 	
 	@GetMapping(value = "/cc/validate/luhn",
 				produces = MediaType.APPLICATION_JSON_VALUE)
-    public String luhnValidation(@RequestParam(name="cc1",required=true) String cc1) {
+    public String luhnValidation(@RequestParam(name="cc",required=true) String cc) {
 
-		CreditCard creditCard1 = new CreditCard(cc1, null, null, null);
+		CreditCard creditCard1 = new CreditCard(cc, null, null, null);
 		
 		boolean status = CCValidator.validate(creditCard1, new LuhnValidationAlgorithm());
 			 

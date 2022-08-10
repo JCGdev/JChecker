@@ -2,7 +2,7 @@ package com.jcgdev.cc.extrapolation.algorithms;
 
 import com.jcgdev.cc.CreditCard;
 
-public class SimilityAlgorithm implements CCExtrapolationAlgorithm{
+public class SimilarityAlgorithm implements CCExtrapolationAlgorithm{
 
 	@Override
 	public CreditCard execute(CreditCard[] ccs) {
@@ -17,16 +17,22 @@ public class SimilityAlgorithm implements CCExtrapolationAlgorithm{
 		assert	bin1 == bin2 : "CCs bins must coincide -  ";
 
 		
-		char[] extrapolatedCC = new char[cc1.length()];
-		for(int i=0; i<cc1.length(); i++) {
-			if(cc1.charAt(i) == cc2.charAt(i)) {
-				extrapolatedCC[i] = cc1.charAt(i);
+		String operable1 = cc1.substring(5, cc1.length());
+		String operable2 = cc2.substring(5, cc2.length());
+		
+		
+		char[] extrapolatedOperablePart = new char[operable1.length()];
+		for(int i=0; i<operable1.length(); i++) {
+			if(operable1.charAt(i) == operable2.charAt(i)) {
+				extrapolatedOperablePart[i] = operable1.charAt(i);
 			}else {
-				extrapolatedCC[i] = "x".charAt(0);
+				extrapolatedOperablePart[i] = "x".charAt(0);
 			}
 		}
 		
-		return new CreditCard(new String(extrapolatedCC), null, null, null);
+		String extrapolatedCC = bin1 + new String(extrapolatedOperablePart);
+		
+		return new CreditCard(extrapolatedCC, null, null, null);
 		
 	} 
 
