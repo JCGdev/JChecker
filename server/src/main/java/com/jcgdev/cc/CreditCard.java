@@ -108,11 +108,11 @@ public class CreditCard {
 	}
 	
 	
-	public static boolean isValid(String cc) {
-		Pattern pattern = Pattern.compile("[0-9]{16}");
-		Matcher matcher = pattern.matcher(cc);
-		
-		return matcher.matches();
+	@Override
+	public String toString() {
+		return String.format("%s|%s|%s|%s", this.number,
+											this.expireMonth,
+											this.expireYear,
+											this.CVV);
 	}
-   
 }
