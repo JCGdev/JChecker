@@ -26,7 +26,7 @@ The credit card number looks valid, as the check digit (the last one) is ***comp
  
 ## Functionality
 
-- [IN-DEVELOPMENT] Generate ***Luhn-valid*** CCs.
+- Generate ***Luhn-valid*** CCs.
 - Validate CCs using the [Luhn algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm).
 - Extrapolate CCs with a variety of methods: ***Similarity***, ***Activation*** and ***Sofia***
 
@@ -77,3 +77,13 @@ The credit card number looks valid, as the check digit (the last one) is ***comp
     - NOTE: cc1 and cc2 must have same bin
     - returns: ***{ "cc" : "extrapolatedNumber" }***
 
+- /cc/generate?bin=BIN&quantity=NUM
+    - bin: First six numbers of a credit card (Ex. 242443xxxxxxxxxx)
+    - quantity: Number of credit cards to generate
+    - NOTE: The BIN can also be an extrapolated credit card
+    - returns: 
+    ```{ 
+         "generated" : [ 
+           "NUM|MONTH|YEAR|CVV",
+           ..... ]
+     }```
