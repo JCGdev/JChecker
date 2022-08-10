@@ -14,6 +14,9 @@ public class CreditCard {
 	private String expireYear;
 	private String CVV;
 	
+	public CreditCard() {}
+	
+	
 	public CreditCard(String number, @Nullable String expireMonth,
 					  @Nullable String expireYear, @Nullable String CVV) {
 		 
