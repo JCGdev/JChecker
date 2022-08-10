@@ -58,32 +58,34 @@ The credit card number looks valid, as the check digit (the last one) is ***comp
 ### Endpoints
 
 - /cc/validate/luhn?cc=NUM
-    - cc: Credit card number
+    - *cc: Credit card number
     - returns: ***{ "isValid" : true/false }***
 
 - /cc/extrapolate/activation?cc=NUM
-    - cc: Credit card number
+    - *cc: Credit card number
     - returns: ***{ "cc" : "extrapolatedNumber" }***
 
 - /cc/extrapolate/similarity?cc1=NUM&cc2=NUM
-    - cc1: First credit card number
-    - cc2: Second credit card number
+    - *cc1: First credit card number
+    - *cc2: Second credit card number
     - NOTE: cc1 and cc2 must have same bin
     - returns: ***{ "cc" : "extrapolatedNumber" }***
 
 - /cc/extrapolate/sofia?cc1=NUM&cc2=NUM
-    - cc1: First credit card number
-    - cc2: Second credit card number
+    - *cc1: First credit card number
+    - *cc2: Second credit card number
     - NOTE: cc1 and cc2 must have same bin
     - returns: ***{ "cc" : "extrapolatedNumber" }***
 
 - /cc/generate?bin=BIN&quantity=NUM
     - bin: First six numbers of a credit card (Ex. 242443xxxxxxxxxx)
-    - quantity: Number of credit cards to generate
+    - *quantity: Number of credit cards to generate
     - NOTE: The BIN can also be an extrapolated credit card
     - returns: 
-    ```{ 
+    ```
+     { 
          "generated" : [ 
            "NUM|MONTH|YEAR|CVV",
            ..... ]
-     }```
+     }
+     ```
