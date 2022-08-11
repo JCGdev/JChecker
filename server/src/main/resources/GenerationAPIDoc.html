@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Docs</title>
+</head>
+<body>
+	
+<h2 id="api">API</h2>
+<h3 id="validation-endpoints">Validation endpoints</h3>
+
+<ul>
+<li>/cc/generate?bin=BIN&amp;quantity=NUM<ul>
+<li>bin: First six numbers of a credit card (Ex. 242443xxxxxxxxxx)</li>
+<li>*quantity: Number of credit cards to generate</li>
+<li>NOTE: The BIN can also be an extrapolated credit card</li>
+<li>returns: <pre><code>{ 
+   <span class="hljs-attr">"generated"</span> : [ 
+     <span class="hljs-string">"NUM|MONTH|YEAR|CVV"</span>,
+     ..... ]
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
+
+
+</body>
+</html>

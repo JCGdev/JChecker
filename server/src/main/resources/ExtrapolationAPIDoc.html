@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Docs</title>
+</head>
+
+<body>
+	
+<h2 id="api">API</h2>
+<h3>Extrapolation endpoints</h3>
+
+<ul>
+<li><p>/cc/extrapolate/activation?cc=NUM</p>
+<ul>
+<li>*cc: Credit card number</li>
+<li>returns: <strong><em>{ "cc" : "extrapolatedNumber" }</em></strong></li>
+</ul>
+</li>
+
+<li><p>/cc/extrapolate/similarity?cc1=NUM&amp;cc2=NUM</p>
+<ul>
+<li>*cc1: First credit card number</li>
+<li>*cc2: Second credit card number</li>
+<li>NOTE: cc1 and cc2 must have same bin</li>
+<li>returns: <strong><em>{ "cc" : "extrapolatedNumber" }</em></strong></li>
+</ul>
+</li>
+
+<li><p>/cc/extrapolate/sofia?cc1=NUM&amp;cc2=NUM</p>
+<ul>
+<li>*cc1: First credit card number</li>
+<li>*cc2: Second credit card number</li>
+<li>NOTE: cc1 and cc2 must have same bin</li>
+<li>returns: <strong><em>{ "cc" : "extrapolatedNumber" }</em></strong></li>
+</ul>
+<div></div><div></div></li>
+</ul>
+
+
+
+
+</body>
+
+</html>

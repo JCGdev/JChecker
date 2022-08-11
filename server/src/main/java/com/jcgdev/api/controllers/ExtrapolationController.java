@@ -1,17 +1,25 @@
 package com.jcgdev.api.controllers;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jcgdev.Main;
 import com.jcgdev.cc.CreditCard;
 import com.jcgdev.cc.extrapolation.CCExtrapolator;
 import com.jcgdev.cc.extrapolation.algorithms.ActivationAlgorithm;
 import com.jcgdev.cc.extrapolation.algorithms.SimilarityAlgorithm;
 import com.jcgdev.cc.extrapolation.algorithms.SofiaAlgorithm;
+import com.jcgdev.utils.FileIO;
 
 @RestController
 public class ExtrapolationController {
@@ -19,16 +27,23 @@ public class ExtrapolationController {
 	@Autowired
 	private Environment env;
 	
-	//TODO -> Make it a bit less shitty 
-	@GetMapping(value ="/cc/extrapolate",
-				produces = MediaType.APPLICATION_XHTML_XML_VALUE)
-    public String extrapolation() {
-        return "<h1>API entrypoints:</h1> \n"
-        		+ "\n"
-        		+ String.format("<p>localhost:%s/cc/extrapolate/similarity?cc1=X&cc2=X </p> \n", env.getProperty("local.server.port"))
-        		+ String.format("<p>localhost:%s/cc/extrapolate/activation?cc1=X </p> \n", env.getProperty("local.server.port"))
-        		+ String.format("<p>localhost:%s/cc/extrapolate/sofia?cc1=X&cc2=X </p> \n", env.getProperty("local.server.port"))
-        		+ "";
+	@GetMapping(value ="/cc/extrapolate/doc",
+				produces = MediaType.TEXT_HTML_VALUE)
+    public String extrapolationDoc() {
+
+		ClassPathResource resource = new ClassPathResource("ExtrapolationAPIDoc.html", 
+														   this.getClass().getClassLoader());
+		
+		InputStream stream;
+		try {
+			stream = resource.getInputStream();
+		} catch (IOException e) {
+			throw new RuntimeException(e.getMessage());
+		}
+
+		String fileContent = FileIO.read(stream, 500);
+		
+		return fileContent;
     }
 	
 
