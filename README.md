@@ -89,3 +89,13 @@ The credit card number looks valid, as the check digit (the last one) is ***comp
            ..... ]
      }
      ```
+
+
+- /cc/validate/doc
+    - returns: html doc explaining API endpoints
+
+- /cc/extrapolate/doc
+    - returns: html doc explaining API endpoints
+
+- /cc/generate?bin=BIN&quantity=NUM
+    - returns: html doc explaining API endpoints
