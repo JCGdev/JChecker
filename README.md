@@ -1,6 +1,6 @@
 # JChecker
 
-A Java based server and client for validating, extrapolating or generating CCs
+A Java based server for validating, extrapolating or generating CCs
 
 
 ## Table of contents
@@ -39,9 +39,9 @@ The credit card number looks valid, as the check digit (the last one) is ***comp
 - ### Build
     - For compiling and building a jar file:
 
-        `$ ./gradlew build -p server/client`
+        `$ ./gradlew build -p server/`
     
-        > The jar will be stored in ***PROYECT_NAME/build/libs/***
+        > The jar will be stored in ***server/build/libs/***
     
     - For cleaning build files:
     
