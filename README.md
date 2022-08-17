@@ -1,6 +1,6 @@
 # JChecker
 
-A Java based server for validating, extrapolating or generating CCs
+A Java based server (API REST) for validating, extrapolating or generating CCs
 
 
 ## Table of contents
